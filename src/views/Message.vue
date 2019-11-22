@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="pos1">
 		<ul>
 			<li>
 				<router-link to="/message/yesMessage">已读消息</router-link>
@@ -27,5 +27,10 @@
 		margin: 0 auto;
 		background-color: #fff;
 		min-height: 400px;
+	}
+	.pos1{
+		position: absolute;
+		left: 50px;
+		top: 100px;
 	}
 </style>

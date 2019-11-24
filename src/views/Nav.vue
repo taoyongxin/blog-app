@@ -12,7 +12,16 @@
 					<router-link to="/message">消息</router-link>
 				</li>
 				<li>
+					<router-link to="/articles">文章</router-link>
+				</li>
+				<li>
 					<router-link to="/collection">专题</router-link>
+				</li>
+				<li>
+					<input type="text" placeholder="搜索" class="input-box">
+				</li>
+				<li>
+					<button class="btn dark-fill">搜索</button>
 				</li>
 			</div>
 			<div class="right">
@@ -65,6 +74,7 @@
 		display: flex;
 		align-items: center;
 		justify-content:space-between;
+		z-index: 9999;
 	}
 	.left {			
 		 display: flex;
@@ -72,7 +82,7 @@
 		 padding-left: 30px;
 	}
 	.left li {
-		margin-right: 120px;
+		margin-right: 100px;
 	}
 	.right {
 		 display: flex;
@@ -80,7 +90,7 @@
 		 padding-right: 20px;
 	}
 	.right li{
-		margin-left: 40px;
+		margin-left: 30px;
 	}
     .right li img {
 		width: 40px;
@@ -94,6 +104,23 @@
 		margin-top: 8px;
 		margin-right: 20px;
 	}
-	
-	
+	/* 路由激活高亮样式 */
+	.router-link-active {
+		background-color: rgba(0,0,0,0.35);
+		font-weight: 700;
+	}
+	.dark-fill{
+		background-color: #555555;
+		color: #fff;
+	}
+	.btn{
+		border: none;
+		cursor: pointer;
+		width: 100px;
+		height: 30px;
+		border-radius: 30px;
+	}
+	.input-box{
+		border: 1px solid #333333;
+	}
 </style>

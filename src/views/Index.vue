@@ -5,7 +5,10 @@
 			<div class="card" v-for="(article,index) in articles" :key="index">
 				<div class="bl-col-8">
 					<div class="card-header bl-title">
-						{{article.title}}
+						<router-link :to="{ path:'/article/' + article.id}">
+							{{article.title}}
+						</router-link>
+						
 					</div>
 					<div class="card-body bl-meta">
 						<div>{{article.summary}}</div>

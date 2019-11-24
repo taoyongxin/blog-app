@@ -1,5 +1,4 @@
 <template>
-
 	
 </template>
 
@@ -7,6 +6,6 @@
 	
 </script>
 
-<style>
+<style scoped="scoped">
 	
 </style>

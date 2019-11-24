@@ -9,6 +9,9 @@ import YesMessage from '@/views/YesMessage.vue'
 import NoMessage from '@/views/NoMessage.vue'
 import Attention from '@/views/Attention.vue'
 import Collection from '@/views/Collection.vue'
+import Articles from '@/views/Articles.vue'
+import ArticleDetail from '@/views/ArticleDetail'
+
 //引入所有出现在路由中的页面组建
 Vue.use(VueRouter)
 
@@ -24,6 +27,15 @@ const routes = [
 		{
 			path : 'index',
 			component : Index
+		},
+		{
+			path : 'articles',
+			name : 'my-articles',
+			component : Articles
+		},
+		{
+			path : 'article',
+			component : ArticleDetail
 		},
 		{
 			path : 'message',

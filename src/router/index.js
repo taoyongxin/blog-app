@@ -11,7 +11,8 @@ import Attention from '@/views/Attention.vue'
 import Collection from '@/views/Collection.vue'
 import Articles from '@/views/Articles.vue'
 import ArticleDetail from '@/views/ArticleDetail'
-
+import UserDetail from'@/views/UserDetail'
+import SignUp from '@/views/SignUp'
 //引入所有出现在路由中的页面组建
 Vue.use(VueRouter)
 
@@ -34,7 +35,11 @@ const routes = [
 			component : Articles
 		},
 		{
-			path : 'article',
+			path : 'user/:id',
+			component : UserDetail
+		},
+		{
+			path : 'article/:id',
 			component : ArticleDetail
 		},
 		{
@@ -73,6 +78,9 @@ const routes = [
     path: '/login',
     name: 'login',
 	component : Login
+  },{
+	  path: '/sign-up',
+	  component :SignUp
   }
 ]
 

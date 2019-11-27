@@ -2,7 +2,7 @@
 	
 	<div class="bl-container bl-row">
 		<div class="bl-col-8 pos1">
-			<div class="card" v-for="(article,index) in articles" :key="index">
+			<div class="card " v-for="(article,index) in articles" :key="index">
 				<div class="bl-col-8">
 					<div class="card-header bl-title">
 						<router-link :to="{ path:'/article/' + article.id}">
@@ -207,5 +207,7 @@
 		text-align: center;
 		cursor: pointer;
 	}
-	
+	/* .box-shadow{
+		box-shadow:4px 5px 10px #555555;
+	} */
 </style>

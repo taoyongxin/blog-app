@@ -7,6 +7,8 @@ import colors from 'vuetify/lib/util/colors'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 Vue.use(VueAxios, axios)
+import global_ from '@/util/Global'
+Vue.prototype.GLOBAL = global_
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false

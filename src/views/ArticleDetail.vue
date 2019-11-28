@@ -1,8 +1,8 @@
 <template>
 <div class="pos1">
 <div class="bl-container">
-	<h2>{{ articleVo.title}}</h2>
-	<div v-html="articleVo.content" class="body">
+	<h2>{{ articleVo.article.title}}</h2>
+	<div v-html="articleVo.article.content" class="body">
 		{{articleVo.content}}
 	</div>
 </div>

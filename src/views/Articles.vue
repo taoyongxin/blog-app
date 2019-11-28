@@ -4,19 +4,22 @@
 			<div v-for="(item,index) in articles" :key="index">
 			<div class="card">
 				<div class="card-avatar">
-					<router-link :to="{ path:'/user/'+item.user_id}">
-					<img :src="'https://images.weserv.nl/?url='+item.avatar">
+					<router-link :to="{ path:'/user/'+item.article.user_id}">
+					<img :src="'https://images.weserv.nl/?url='+item.author.avatar">
 					</router-link>
-					<h3>{{item.nickname}}</h3>
+					<h3>{{item.author.nickname}}</h3>
 				</div>
 				<div class="card-main">
-					<router-link :to="{path:'/article/'+item.id}">
-					<h3>{{item.id}}.{{item.title}}</h3>
+					<router-link :to="{path:'/article/'+item.article.id}">
+					<h3>{{item.article.id}}.{{item.article.title}}</h3>
 					</router-link>
-					<p>{{item.summary}}</p>
-					<h5>{{item.comment}}评论/{{item.praise}}喜欢</h5>
+					<p>{{item.article.summary}}</p>
+					<h5>{{item.article.comment}}评论/{{item.article.praise}}喜欢</h5>
 				</div>
 			</div>
+			</div>
+			<div>
+				<button class="bl-btn bl-btn-round bl-btn-nomal bl-shadow bl-btn-default click-more" @click="loadMore">点击加载更多</button>
 			</div>
 		</div>
 	</div>
@@ -26,7 +29,9 @@
 	export default{
 		data(){
 			return{
-				articles:[]
+				articles:[],
+				currentPage:1,
+				count:10
 			}
 		},
 		/* created:function(){
@@ -36,13 +41,39 @@
 		}, */
 		created() {
 				this.axios
-					.get(this.GLOBAL.baseUrl + 'article/nickname')
+					.get(this.GLOBAL.baseUrl + 'article',{
+						params: {
+							page:this.currentPage,
+							count:this.count
+						}
+					})
 					.then(res => {
 						console.log(res.data.data.length);
 						this.articles = res.data.data;
-					});
+					});	
 			},
-	}
+			methods: {
+				loadMore() {
+					this.currentPage = this.currentPage + 1;
+					this.axios
+					          .get(this.GLOBAL.baseUrl + 'article',{
+								  params:{
+									  page:this.currentPage,
+									  count:this.count
+								  }
+							  })
+							  .then(res => {
+								  console.log(res.data.data.length);
+								  let temp = [];
+								  temp = res.data.data;
+								  for(var i=0;i<temp.length;i++){
+									  this.articles.splice(this.currentPage * this.count,0,temp[i]);
+								  }
+								  console.log(this.articles.length);
+							  });
+				}
+			}
+	};
 </script>
 
 <style scoped="scoped">
@@ -89,5 +120,9 @@
 	.card-main h5{
 		color: #969696;
 		margin-top: 55px;
+	}
+	.click-more{
+		width: 100%;
+		margin-top: 20px;
 	}
 </style>
